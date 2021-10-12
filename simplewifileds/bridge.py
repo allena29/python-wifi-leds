@@ -3,11 +3,7 @@ import socket
 import sys
 import time
 
-from os.path import dirname
-
-from . import rgb
-from . import white
-from . import rgbw
+from simplewifileds.white import White
 
 class Bridge:
     def send_command(self, part1, part2=0x00):
@@ -64,6 +60,4 @@ class Bridge:
 
         self.create_connection()
 
-        self.rgb = rgb.RGB(self)
-        self.white = white.White(self)
-        self.rgbw = rgbw.RGBW(self)
+        self.white =  White(self)
